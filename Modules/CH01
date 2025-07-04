@@ -1,0 +1,175 @@
+
+# Chapter 1 – Computer and Network Security Concepts
+
+## Introduction
+
+Computer security is the discipline focused on protecting systems and data from a wide range of threats and vulnerabilities. Its purpose is to ensure the reliable and secure functioning of information systems and the protection of digital assets.
+
+The three core principles of computer security are:
+
+- **Confidentiality** – Ensures that information is accessible only to those authorized to have access. This prevents sensitive data from being disclosed to unauthorized individuals or systems.
+- **Integrity** – Ensures that information is accurate and complete, and that it has not been altered in an unauthorized manner. Integrity includes mechanisms to detect and correct unauthorized modifications.
+- **Availability** – Ensures that information and critical services are accessible when needed. A system that is down or slow may effectively deny access, which can be as damaging as a breach of confidentiality.
+
+According to NIST:
+
+> “The protection afforded to an automated information system in order to attain the applicable objectives of preserving the integrity, availability, and confidentiality of information system resources.”
+
+These information system resources include:
+- **Hardware** – physical components like servers, routers, and computers.
+- **Software** – operating systems, applications, and utilities.
+- **Firmware** – embedded code in devices.
+- **Data** – both structured and unstructured.
+- **Telecommunications** – the infrastructure that connects systems and facilitates communication.
+
+## Objectives of Computer Security
+
+1. **Confidentiality** – Prevent unauthorized parties from accessing sensitive or private data. This involves encryption, access controls, and secure communication protocols.
+2. **Integrity** – Protect data from unauthorized changes, ensuring the information is trustworthy. Techniques include hashing, digital signatures, and checksums.
+3. **Availability** – Ensure systems remain operational and accessible. Techniques include fault tolerance, redundancy, and protection against denial-of-service (DoS) attacks.
+
+## Breach Impact Levels
+
+- **Low** – Minor damage. Affects non-critical systems or results in temporary inconvenience.
+- **Moderate** – Noticeable disruption. Impacts business operations or user trust.
+- **High** – Severe consequences. May include loss of life (e.g., healthcare systems), massive financial loss, or legal/regulatory consequences.
+
+## Security Challenges
+
+- Security is inherently complex due to ever-changing threats and evolving technologies.
+- Systems are often only as secure as their weakest component.
+- The cost and effort of security may not be appreciated until a failure occurs.
+- Good security may reduce convenience or usability, causing resistance from users.
+- Effective protection must address both known vulnerabilities and anticipate emerging threats.
+
+Additional issues include:
+- Insider threats from employees or partners.
+- Balancing performance, usability, and security.
+- Keeping up with patches and updates.
+- The arms race between attackers and defenders.
+
+## OSI Security Architecture
+
+The OSI architecture provides a conceptual framework for implementing security in systems.
+
+**Definitions:**
+- **Security Attack** – Any attempt to breach security policies by gaining unauthorized access to information or disrupting services.
+- **Security Mechanism** – Tools or techniques (e.g., firewalls, encryption, authentication) used to detect, prevent, or recover from attacks.
+- **Security Service** – Functions that provide a certain level of protection (e.g., confidentiality, integrity) to data or systems.
+
+## Types of Security Attacks
+
+### 1. Passive Attacks
+
+These involve monitoring or eavesdropping on transmissions. They do not alter system data but violate confidentiality.
+
+- **Release of message contents** – Intercepting sensitive data such as emails or login credentials.
+- **Traffic analysis** – Observing communication patterns (e.g., frequency, timing) to infer information.
+
+Countermeasures include strong encryption and traffic padding.
+
+### 2. Active Attacks
+
+These involve modifying or disrupting data or operations. They can be harder to prevent and more damaging.
+
+- **Modification of messages** – Altering content in transit.
+- **Masquerade** – Impersonating another user or system.
+- **Replay** – Reusing old transmissions to gain unauthorized access.
+- **Denial of Service (DoS)** – Overloading a system to prevent legitimate access.
+
+Defenses include integrity checks, authentication, and intrusion detection systems.
+
+## Security Services (from X.800 & RFC 4949)
+
+1. **Authentication** – Verifies the identity of communicating parties. Can include single-factor (passwords) or multi-factor (tokens, biometrics) methods.
+2. **Access Control** – Enforces rules on who can access what resources. Policies can be based on roles, attributes, or user identities.
+3. **Data Confidentiality** – Prevents unauthorized access to information. Usually achieved via encryption.
+4. **Data Integrity** – Detects and prevents unauthorized data modification. Hashing and digital signatures are key mechanisms.
+5. **Nonrepudiation** – Ensures that a party cannot deny the authenticity of their signature on a message or a transaction.
+6. **Availability** – Keeps services operational and resilient to disruption or attacks.
+
+## Security Mechanisms (X.800)
+
+Mechanisms include:
+- **Encipherment** – Transforming data into an unreadable format using encryption.
+- **Digital Signatures** – Verifying authenticity and integrity of a message.
+- **Access Controls** – Managing permissions for users and systems.
+- **Authentication Exchange** – Verifying identities during communication.
+- **Traffic Padding** – Making all messages the same size to prevent traffic analysis.
+- **Routing Control** – Ensuring data takes secure paths.
+- **Notarization** – Using trusted third parties to validate actions.
+
+## Fundamental Security Design Principles
+
+1. **Economy of Mechanism** – Keep designs simple to reduce errors and make them easier to audit and secure.
+2. **Fail-Safe Defaults** – Default settings should deny access; permissions must be explicitly granted.
+3. **Complete Mediation** – Every access request must be validated against the current security policy.
+4. **Open Design** – Security should not rely on secrecy of design. Algorithms should be public; secrecy should lie in keys.
+5. **Separation of Privilege** – Require multiple conditions for access, improving robustness.
+6. **Least Privilege** – Users should only have access to the resources they need to do their job.
+7. **Least Common Mechanism** – Minimize shared resources to reduce risk of unintended interactions or data leakage.
+8. **Psychological Acceptability** – Security features should not burden users excessively; they should be intuitive and minimally disruptive.
+9. **Isolation** – Separate critical components to contain breaches and limit exposure.
+10. **Encapsulation** – Restrict access to internal workings of systems via defined interfaces.
+11. **Modularity** – Build security in isolated, interchangeable components that can be tested independently.
+12. **Layering** – Use multiple, overlapping defenses so that failure of one does not compromise the system.
+13. **Least Astonishment** – System behavior should align with user expectations to prevent misuse or confusion.
+
+## Attack Surfaces
+
+The attack surface of a system includes all points where an attacker could try to exploit a vulnerability. A smaller, more controlled attack surface improves security.
+
+### 3 Main Categories:
+1. **Network Attack Surface** – Exposed services, open ports, and network protocols.
+2. **Software Attack Surface** – Application bugs, insecure libraries, and poorly implemented features.
+3. **Human Attack Surface** – Social engineering, phishing, or insider threats.
+
+Attack surfaces should be regularly assessed and minimized.
+
+## Attack Trees
+
+An attack tree is a structured way to model potential security breaches.
+
+- The **root** represents the attacker’s goal.
+- **Branches** show different paths or strategies to reach that goal.
+- **Leaf nodes** are individual steps or exploits.
+
+Attack trees help identify weaknesses, prioritize defenses, and simulate attacker behavior.
+
+## Network Security Models
+
+### 1. Model for Network Security
+
+Describes communication between a sender and a receiver through a potentially insecure channel.
+
+- Threats include interception, tampering, and forgery.
+- Defenses include encryption (to ensure confidentiality), integrity checks (to detect changes), and authentication (to verify identity).
+
+### 2. Network Access Security Model
+
+Focuses on securing access to the network itself before any communication begins.
+
+- Defends against unauthorized users or devices joining the network.
+- Tools include firewalls, access control lists (ACLs), authentication protocols, and intrusion prevention systems.
+
+## Unwanted Access & Threats
+
+Malicious software or unauthorized code may compromise system integrity and availability.
+
+### Two main types:
+- **Information Access Threats** – Stealing or intercepting sensitive data.
+- **Service Threats** – Disabling or disrupting services, often using flaws in applications or infrastructure.
+
+Common vectors include:
+- Malicious attachments or downloads
+- Vulnerabilities in trusted programs (e.g., compilers, editors)
+
+## Security Standards
+
+Organizations rely on established standards to guide their security practices:
+
+- **NIST** (National Institute of Standards and Technology) provides detailed guidelines (e.g., NIST SP 800 series).
+- **ISO/IEC 27001** is a globally recognized framework for managing information security.
+- **RFCs (Request for Comments)** like RFC 4949 define security terminology and best practices.
+
+Standards help ensure consistency, interoperability, and regulatory compliance.
