@@ -1,10 +1,28 @@
-def sanitize_input(text):                                     # Remove non-alphabetic characters and convert to lowercase
+def sanitize_input(text):
+    # Remove non-alphabetic characters and convert to lowercase
     return ''.join(c.lower() for c in text if c.isalpha())
 
-def vigenere_encrypt():
-    plaintext = input("Enter plaintext: ")
-    key = input("Enter key: ")
+def generate_key(plaintext, key):
+    repeats = len(plaintext) // len(key)
+    extended_key = (key * repeats)[:len(plaintext)]
+    return extended_key
 
-    # Sanitize inputs
-    plaintext = sanitize_input(plaintext)
-    key = sanitize_input(key)
+
+
+    
+def main():
+    plaintext_input = input("Enter plaintext: ")
+    key_input = input("Enter key: ")
+
+    plaintext = sanitize_input(plaintext_input)
+    key = sanitize_input(key_input)
+
+    extended_key = generate_key(plaintext, key)
+
+    print("\nSanitized Plaintext:", plaintext)
+    print("Sanitized Key:      ", key)
+    print("Generated Key:      ", extended_key)
+
+
+if __name__ == "__main__":
+    main()
