@@ -3,7 +3,7 @@ def sanitize_input(text):
     return ''.join(c.lower() for c in text if c.isalpha())
 
 def generate_key(plaintext, key):
-    repeats = len(plaintext) // len(key)
+    repeats = len(plaintext) // len(key) + 1
     extended_key = (key * repeats)[:len(plaintext)]
     return extended_key
 
@@ -20,7 +20,6 @@ def main():
     extended_key = generate_key(plaintext, key)
 
     print("\nSanitized Plaintext:", plaintext)
-    print("Sanitized Key:      ", key)
     print("Generated Key:      ", extended_key)
 
 
